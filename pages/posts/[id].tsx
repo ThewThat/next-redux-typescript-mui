@@ -1,6 +1,6 @@
-import React, { FC, useEffect } from "react"
+import React, { FC } from "react"
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { Paper, Grid, Box, Container } from "@mui/material";
+import { Paper, Grid, Container } from "@mui/material";
 import Link from "next/link";
 
 import Layout from '../../components/Layout'
@@ -17,7 +17,7 @@ interface Props {
   posts: Array<Post>;
 }
 
-const Post: FC<Props> = ({ post }: any) => {
+const Post: FC<Props> = ({ post }: object) => {
 
   return (
     <Container maxWidth={'md'}>
@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(url)
   const posts = await res.json()
 
-  const paths = posts.map((post: any) => {
+  const paths = posts.map((post: object) => {
     return {
       params: { id: String(post.id) },
     }
@@ -62,7 +62,7 @@ Post.getLayout = function getLayout(page) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+export const getStaticProps: GetStaticProps = async ({ params }: object) => {
   const id = params.id
 
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)

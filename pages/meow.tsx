@@ -1,21 +1,17 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
 import { Container, Grid } from '@mui/material';
 
 interface Props {
-    meow: any;
+    meow: object; 
+    
 }
 
 const Meow: FC<Props> = ({ meow }) => {
-
-    useEffect(() => {
-        console.log(meow);
-    }, [])
 
     return (
         <Container maxWidth={'md'}>

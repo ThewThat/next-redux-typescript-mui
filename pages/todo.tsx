@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { FC } from 'react'
 
 import TodoList from '../components/Todo/TodoList'
 import Container from '@mui/material/Container'
@@ -12,9 +12,9 @@ import AddTodo from '../components/Todo/AddTodo';
 
 import Layout from '../components/Layout'
 import Sidebar from '../components/Sidebar'
-import { Grid,Paper } from '@mui/material';
+import { Grid } from '@mui/material';
 
-const TodoPage = () => {
+const TodoPage: FC = () => {
     const articles: readonly IArticle[] = useSelector(
         (state: ArticleState) => state.articles,
         shallowEqual

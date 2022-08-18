@@ -29,17 +29,17 @@ type Posts = {
 
 interface Props {
     posts: Array<Posts>;
-    meow: any
+    meow: object
 }
 
-const Posts: FC<Props> = ({ posts, image_random }) => {
+const Posts: FC<Props> = ({ posts, image_random }: object) => {
 
     const [newArr, setNewArr] = useState([])
 
     useEffect(() => {
         const mergedArr = image_random.map((item, i) => Object.assign({}, item, posts[i]));
         setNewArr(mergedArr);
-    }, [])
+    }, [image_random,posts])
 
     return (
         <Container maxWidth={'md'}>
