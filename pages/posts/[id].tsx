@@ -17,7 +17,7 @@ interface Props {
   posts: Array<Post>;
 }
 
-const Post: FC<Props> = ({ post }: object) => {
+const Post: FC<Props> = ({ post }: any) => {
 
   return (
     <Container maxWidth={'md'}>
@@ -62,7 +62,7 @@ Post.getLayout = function getLayout(page) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }: object) => {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const id = params.id
 
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)

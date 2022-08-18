@@ -29,10 +29,10 @@ type Posts = {
 
 interface Props {
     posts: Array<Posts>;
-    meow: object
+    meow: any
 }
 
-const Posts: FC<Props> = ({ posts, image_random }: object) => {
+const Posts: FC<Props> = ({ posts, image_random }: any) => {
 
     const [newArr, setNewArr] = useState([])
 

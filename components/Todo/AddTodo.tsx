@@ -6,7 +6,7 @@ type Props = {
 }
 
 const AddTodo: React.FC<Props> = ({ saveArticle }) => {
-    const [article, setArticle] = React.useState<IArticle | object>();
+    const [article, setArticle] = React.useState<IArticle | any>();
     const handleArticleData = (e: React.FormEvent<HTMLInputElement>) => {
         setArticle({
             ...article,
@@ -15,6 +15,7 @@ const AddTodo: React.FC<Props> = ({ saveArticle }) => {
     };
 
     const addNewArticle = (e: React.FormEvent) => {
+        console.log(123123123)
         e.preventDefault();
         saveArticle(article);
     };
@@ -41,7 +42,7 @@ const AddTodo: React.FC<Props> = ({ saveArticle }) => {
                     />
                 </Grid>
             </Grid>
-            <Button sx={{ my: 2 }} variant='contained' color='primary' disabled={article === undefined ? true : false}>
+            <Button type="submit" sx={{ my: 2 }} variant='contained' color='primary' disabled={article === undefined ? true : false}>
                 Add article
             </Button>
         </form >
